@@ -1,9 +1,10 @@
 import random
+import matplotlib.pyplot as plt
 
 betsPerMin = 20
 contribution_per_entry=0.1
 dailyRateAverage = 15000
-numberOfAccounts = 55
+numberOfAccounts = 50
 
 def simulate_full_stats(
     sims=20000,
@@ -69,7 +70,8 @@ def simulate_full_stats(
         "max_loss": max_loss,
         "prob_loss_>=_1M": prob_big_loss,
         "num_big_losses": len(big_losses),
-        "total_sims": total_runs
+        "total_sims": total_runs,
+        "results": results,  # for further analysis if needed
     }
 
 
@@ -77,4 +79,8 @@ def simulate_full_stats(
 stats = simulate_full_stats(sims=20000)
 
 for k, v in stats.items():
-    print(f"{k}: {v}")
+    if k != "results":  # skip printing raw results
+        print(f"{k}: {v}")
+    
+plt.hist(stats["results"], bins=50, edgecolor='black')
+plt.show()
