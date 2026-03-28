@@ -76,7 +76,7 @@ def simulate_full_stats(
 
 
 # Run simulation
-stats = simulate_full_stats(sims=20000)
+stats = simulate_full_stats()
 
 for k, v in stats.items():
     if k != "results":  # skip printing raw results
