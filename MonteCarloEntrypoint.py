@@ -3,7 +3,7 @@ import random
 betsPerMin = 20
 contribution_per_entry=0.1
 dailyRateAverage = 15000
-numberOfAccounts = 50
+numberOfAccounts = 55
 
 def simulate_full_stats(
     sims=20000,
